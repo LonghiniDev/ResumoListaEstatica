@@ -1,0 +1,49 @@
+# Project: Projeto1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o iniciarElemento.o inserirElemento.o apresentarElemento.o desenfileirarElemento.o PUSH.o POP.o buscarElemento.o
+LINKOBJ  = main.o iniciarElemento.o inserirElemento.o apresentarElemento.o desenfileirarElemento.o PUSH.o POP.o buscarElemento.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Revisão.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+iniciarElemento.o: iniciarElemento.cpp
+	$(CPP) -c iniciarElemento.cpp -o iniciarElemento.o $(CXXFLAGS)
+
+inserirElemento.o: inserirElemento.cpp
+	$(CPP) -c inserirElemento.cpp -o inserirElemento.o $(CXXFLAGS)
+
+apresentarElemento.o: apresentarElemento.cpp
+	$(CPP) -c apresentarElemento.cpp -o apresentarElemento.o $(CXXFLAGS)
+
+desenfileirarElemento.o: desenfileirarElemento.cpp
+	$(CPP) -c desenfileirarElemento.cpp -o desenfileirarElemento.o $(CXXFLAGS)
+
+PUSH.o: PUSH.cpp
+	$(CPP) -c PUSH.cpp -o PUSH.o $(CXXFLAGS)
+
+POP.o: POP.cpp
+	$(CPP) -c POP.cpp -o POP.o $(CXXFLAGS)
+
+buscarElemento.o: buscarElemento.cpp
+	$(CPP) -c buscarElemento.cpp -o buscarElemento.o $(CXXFLAGS)
